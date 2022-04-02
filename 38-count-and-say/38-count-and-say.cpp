@@ -3,7 +3,6 @@ public:
     string countAndSay(int n) {
         
         string s="1";
-        
         while(--n){
             string temp="";
             for(int i=0;i<s.size();++i){
@@ -12,12 +11,10 @@ public:
                     ++cnt;
                     ++i;
                 }
-                temp+=to_string(cnt)+s[i];
+                temp+=to_string(cnt)+s[i];    
             }
             s=temp;
-            
         }
-        
         return s;
     }
 };
