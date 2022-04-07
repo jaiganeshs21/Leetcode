@@ -1,5 +1,5 @@
 # Next element with greater frequency
-## Easy 
+## Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array&nbsp;<strong>arr[ ]</strong>&nbsp;of&nbsp;<strong>n</strong>&nbsp;integers, for every element, find the closest element on it's right that has a greater frequency than its own frequency.</span></p>
 
