@@ -31,8 +31,8 @@ so -1 will be printed. and so on. </span></pre>
 <p><strong><span style="font-size:18px">Example 2:</span></strong></p>
 
 <pre><span style="font-size:18px"><strong>Input:
-</strong>n = 11
-arr[] = {10 5 1 2 3 2 5 5 4 5 2}
+</strong>n = 10
+arr[] = {5 1 2 3 2 5 5 4 5 2}
 <strong>Output:</strong>
 -1 2 5 2 5 -1 -1 5 -1 -1</span></pre>
 
