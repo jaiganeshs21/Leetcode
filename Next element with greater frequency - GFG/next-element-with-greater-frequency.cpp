@@ -8,24 +8,30 @@ using namespace std;
 class Solution{
 public:
 vector<int> print_next_greater_freq(int arr[],int n)
-   {
-       // code here
-      
-       vector<int> ans;
-       unordered_map<int,int> mymap;
-       stack<int> s;
-       for(int i=0;i<n;i++) mymap[arr[i]]++;
-       
-       for(int i=n-1;i>=0;i--){
-           if(s.empty()) s.push(arr[i]);
-           while(!s.empty() && mymap[arr[i]]>=mymap[s.top()]) s.pop();
-           if(s.empty()) ans.push_back(-1);
-           else ans.push_back(s.top());
-           s.push(arr[i]);
-       }
-       reverse(ans.begin(),ans.end());
-       return ans;
-   }
+    {
+        unordered_map<int, int> fmap;
+        for(int i = 0; i<n; i++){
+            fmap[arr[i]]++;
+        }
+        vector<int>next_greater(n, -1);
+        //vector<int>next_greater;
+        stack<pair<int, int>>s;
+        for(int i = n-1; i>=0; i--){
+            while(s.size()>0 and s.top().second<=fmap[arr[i]]){
+                    s.pop();
+                }
+            if(s.empty()){
+                //next_greater.push_back(-1);
+                next_greater[i]=-1;
+            }else{
+                //next_greater.push_back(s.top().first);
+                next_greater[i]=s.top().first;
+            }
+            s.push({arr[i], fmap[arr[i]]});
+        }
+        //reverse(begin(next_greater), end(next_greater));
+        return next_greater;
+    }
 };
 
 
