@@ -85,7 +85,6 @@ private:
  * bool param_5 = obj->isEmpty();
  * bool param_6 = obj->isFull();
  */
-
 /**
  * Your MyCircularQueue object will be instantiated and called as such:
  * MyCircularQueue* obj = new MyCircularQueue(k);
