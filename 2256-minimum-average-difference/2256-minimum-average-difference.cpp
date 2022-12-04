@@ -1,23 +1,34 @@
 class Solution {
 public:
-    int minimumAverageDifference(vector<int>& nums) {
-        int n=nums.size();
-        if(n==1)return 0;
-        long long end=accumulate(nums.begin(),nums.end(),(long long)0);
-        long long start=0;
-        long long avg=0,ans=0,prev=INT_MAX;
-        for(int i=0;i<n;i++){
-            start+=nums[i];
-            end-=nums[i];
-            if(i!=n-1){
-                avg=abs(start/(i+1)-end/(n-i-1));
-            }
-            else{
-                avg=abs(start/(i+1)-end/1);
-            }
-            if(avg<prev){
+    long long minimumAverageDifference(vector<int>& nums) {
+        long long n=nums.size();
+        
+        long long sum=0;
+        for(long long i=0;i<n;++i){
+            sum+=nums[i];
+        }
+        
+        
+        vector<long long>temp;
+        
+        
+        long long first=0;
+        long long second=0;
+        for(int i=0;i<n-1;++i){
+            first+=nums[i];
+            second=sum-first;
+           // cout<<first/(i+1)<<" "<<second/(n-i-1)<<'\n';
+            temp.push_back(abs((first/(i+1))-(second/(n-i-1))));        
+        }
+        temp.push_back(sum/n);
+        
+        for(auto x: temp) cout<<x<<" ";
+        long long mi=INT_MAX;
+        long long ans=-1;
+        for(long long i=0;i<n;++i){
+            if(temp[i]<mi){
+                mi=temp[i];
                 ans=i;
-                prev=avg;
             }
         }
         return ans;
